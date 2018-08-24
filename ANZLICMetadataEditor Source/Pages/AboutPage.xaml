@@ -1,0 +1,30 @@
+﻿<corepages:EditorPage x:Name="ItemInfoPage" Tag="Page" x:Class="CustomMetadataEditor.Pages.AboutPage"
+	xmlns:corepages="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Pages;assembly=ESRI.ArcGIS.MetadataEditor" 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:dg="http://schemas.microsoft.com/wpf/2008/toolkit"
+	xmlns:p="clr-namespace:CustomMetadataEditor.Pages"
+	xmlns:v="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Validation;assembly=ESRI.ArcGIS.MetadataEditor"
+	xmlns:r="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Properties;assembly=ESRI.ArcGIS.MetadataEditor"
+	xmlns:controls="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Controls;assembly=ESRI.ArcGIS.MetadataEditor"
+	xmlns:coll="clr-namespace:System.Collections;assembly=mscorlib"
+	xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor"
+	Loaded="FillXml">
+
+    <UserControl.Resources>
+        <!-- empty -->
+    </UserControl.Resources>
+
+    <Grid Style="{DynamicResource EditorFrontPageStyle}">
+        <StackPanel>
+            <Image Stretch="None" HorizontalAlignment="Center" Source="../Icons/ANZLIC_Metadata_Logo.png"></Image>
+            <TextBlock  TextWrapping="Wrap" TextAlignment="Center">
+                <LineBreak/>
+                <Bold>ANZLIC Metadata (ISO19139 2007) Editor for ArcGIS Desktop</Bold>
+                <LineBreak/>
+                <LineBreak/>
+                <Bold>This tool was developed by Geoscience Australia on behalf of ANZLIC using Esri Inc ArcGIS 10.4 Metadata Toolkit</Bold>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</corepages:EditorPage>

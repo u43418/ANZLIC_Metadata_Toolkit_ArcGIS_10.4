@@ -1,0 +1,197 @@
+﻿<corepages:EditorPage Tag="CI_ResponsibleParty" x:Class="CustomMetadataEditor.Pages.CI_ResponsibleParty"    xmlns:corepages="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Pages;assembly=ESRI.ArcGIS.MetadataEditor" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:p="clr-namespace:CustomMetadataEditor.Pages"
+    xmlns:v="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Validation;assembly=ESRI.ArcGIS.MetadataEditor"
+    xmlns:r="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Properties;assembly=ESRI.ArcGIS.MetadataEditor"
+    xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor"
+    Loaded="FillXml">
+
+    <UserControl.Resources>
+
+        <!-- 
+    <!ENTITY % RespParty '(rpIndName?, rpOrgName?, rpPosName?, rpCntInfo?, role)'>
+    -->
+
+        <XmlDataProvider x:Key="XmlRecord" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <rpIndName></rpIndName>
+                    <rpOrgName></rpOrgName>
+                    <rpPosName></rpPosName>
+                    <rpCntInfo editorFillOnly="True" editorExpand=""/>
+                    <role>
+                        <RoleCd value="" />
+                    </role>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
+
+        <!-- contact -->
+        <XmlDataProvider x:Key="XmlRecord_Contact" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <rpCntInfo editorExpand="True"/>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
+
+        <e:Codelists x:Key="CI_RoleCode" CodelistName="CI_RoleCode"/>
+
+        <!--»	EsriAU Comment 10401: Data provider for Organisation List and Set the Source in the cs file see Comment 10033-->
+        <XmlDataProvider x:Name="ANZ_OrganisationsTypeCode"
+                         x:Key="ANZ_OrganisationsTypeCode" 
+                         XPath=".//codelist[@id='anzlic-Organisation']/code"
+                         IsAsynchronous="True" 
+                         IsInitialLoadEnabled="True">
+        </XmlDataProvider>
+
+        <!--»	EsriAU Comment 10402: Data provider for Position List and Set the Source in the cs file see Comment 10034-->
+        <XmlDataProvider x:Name="ANZ_PositionsTypeCode"
+                         x:Key="ANZ_PositionsTypeCode" 
+                         XPath=".//codelist[@id='anzlic-Position']/code"
+                         IsAsynchronous="True" 
+                         IsInitialLoadEnabled="True">
+        </XmlDataProvider>
+
+        <!--»	EsriAU Comment 10021: Data provider for Default Values and Set the Source in the cs file see Comment 10035-->
+        <!--<XmlDataProvider x:Name="ANZ_Default" 
+                         x:Key="ANZ_Default" 
+                         IsAsynchronous="False" 
+                         IsInitialLoadEnabled="True" 
+                         XPath="/Default" 
+                         />-->
+
+
+    </UserControl.Resources>
+
+    <Grid>
+        <StackPanel>
+            <Grid Style="{DynamicResource EditorSubPageStyle}">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <!--»	EsriAU Comment 104XXXX: Add a column and set textbox column to 9-->
+                <!-- For debuggon se the 3rd column width to "*"-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- individual name -->
+                <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="0" Grid.Column="0" Content="{x:Static r:Resources.LBL_CI_Name}"/>
+                <!--»	EsriAU Comment 10405: Add Loaded Event to Textbox to add Default Values-->
+                <TextBox Style="{DynamicResource EditorTextBoxStyle}" 
+                         Grid.Row="0" Grid.Column="1" 
+                         SourceUpdated="DefaultValueChanged" 
+                         ToolTip="{x:Static r:Definitions.CI_ResponsibleParty_individualName}"
+                         v:Nav.AnchorName="IndName,rpIndName"
+                         Text="{e:MetadataBinding XPath=rpIndName}"
+                         Loaded="IndividualName_Loaded" 
+                         />
+
+                <!-- organization -->
+                <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="1" Grid.Column="0" Content="{x:Static r:Resources.LBL_CI_Organization}"/>
+                <!--»	EsriAU Comment 10402: Add Dropdown List for the Organisations and bind it to rpOrgName-->
+                <ComboBox Height="20" Name="ANZLICOrganisations" Grid.Row="1" Grid.Column="1" 
+                          ItemsSource="{Binding Source={StaticResource ANZ_OrganisationsTypeCode}}" 
+                          SelectedValue="{e:MetadataBinding XPath=rpOrgName}"
+                          Text="{e:MetadataBinding XPath=rpOrgName}">
+                </ComboBox>
+                <!--»	EsriAU Comment 10406: Add Loaded Event to Textbox to add Default Values-->
+                <TextBox Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="1" Grid.Column="2" SourceUpdated="DefaultValueChanged" ToolTip="{x:Static r:Definitions.CI_ResponsibleParty_organisationName}"
+            v:Nav.AnchorName="OrgName,rpOrgName"
+            Text="{e:MetadataBinding XPath=rpOrgName}" 
+                         Loaded="OrganisationName_Loaded" />
+                <!-- position -->
+                <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="2" Grid.Column="0" Content="{x:Static r:Resources.LBL_CI_Position}"/>
+                <!--»	EsriAU Comment 10404: Add Dropdown List for the Positions and bind it to rpPosName-->
+                <ComboBox Height="20" Name="ANZLICPositions" Grid.Row="2" Grid.Column="1" 
+                          ItemsSource="{Binding Source={StaticResource ANZ_PositionsTypeCode}}" 
+                          SelectedValue="{e:MetadataBinding XPath=rpPosName}"
+                          Text="{e:MetadataBinding XPath=rpPosName}">
+                </ComboBox>
+                <!--»	EsriAU Comment 10407: Add Loaded Event to Textbox to add Default Values-->
+                <TextBox Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="2" Grid.Column="2"
+                         SourceUpdated="DefaultValueChanged" ToolTip="{x:Static r:Definitions.CI_ResponsibleParty_positionName}"
+                         v:Nav.AnchorName="PosName,rpPosName"
+                         Text="{e:MetadataBinding XPath=rpPosName}" 
+                         Loaded="PositionName_Loaded"
+                         />
+                <!-- role -->
+                <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="3" Grid.Column="0" Content="{x:Static r:Resources.LBL_CI_Role}"/>
+                <ComboBox Loaded="PostProcessComboBoxValues" 
+                          corepages:EditorPage.SourceXPath="role/RoleCd/@value" 
+                          Grid.Row="3" Grid.Column="1" 
+                          Style="{DynamicResource EditorHComboBoxStyle}" 
+                          IsEditable="False"
+                          v:Nav.AnchorName="role,role"
+                          ToolTip="{x:Static r:Definitions.CI_ResponsibleParty_role}"
+                          ItemsSource="{Binding Source={StaticResource CI_RoleCode}, Path=List}"
+                          DisplayMemberPath="."
+                          SelectedValuePath="@value"
+                          >
+                    <ComboBox.SelectedValue>
+                        <e:MetadataBinding XPath="role/RoleCd/@value" />
+                    </ComboBox.SelectedValue>
+                </ComboBox>
+                <!--»	EsriAU Comment 10409: Add Textbox to add Default Values-->
+                <TextBox Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="3" Grid.Column="2"
+                         SourceUpdated="DefaultValueChanged" ToolTip="{x:Static r:Definitions.CI_ResponsibleParty_role}"
+                         v:Nav.AnchorName="role,role"
+                         Text="{e:MetadataBinding XPath=role/RoleCd/@value}" 
+                         Loaded="Role_Loaded"
+                         />
+
+                <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"  >
+                    <!-- contact -->
+                    <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=rpCntInfo}">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
+                                    <Expander.Header>
+                                        <Label Style="{DynamicResource EditorHExpanderLabel}" Content="{x:Static r:Resources.LBL_CONT_CONTACT}"/>
+                                    </Expander.Header>
+                                    <!-- contact -->
+                                    <p:CI_Contact x:Name="partyContact"/>
+                                </Expander>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <!--  ADD CONTACT -->
+                    <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}"
+                  ItemsSource="{Binding XPath=self::*[not(rpCntInfo)]}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Button Tag="Contact" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
+                                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                        <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
+                                        <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_ADD_CONTACT_INFO}"/>
+                                    </StackPanel>
+                                </Button>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                </StackPanel>
+            </Grid>
+
+            <!-- validate after all anchors are loaded -->
+            <v:PageValidateControl/>
+
+        </StackPanel>
+    </Grid>
+</corepages:EditorPage>

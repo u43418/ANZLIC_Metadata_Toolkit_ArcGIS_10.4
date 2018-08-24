@@ -1,0 +1,20 @@
+﻿EsriAu.ANZLIC.Metadata.Editor
+
+
+library
+C#
+.cs
+C:\WorkSpace\ANZLIC_Metadata_Toolkit_ArcGIS_10.4\ANZLICMetadataEditor Source\obj\Release\
+EsriAu.ANZLIC.Metadata.Editor
+none
+false
+TRACE
+
+109-2112749062
+
+126-1476299694
+201796211533
+Pages\AboutPage.xaml;Pages\BooleanValueSync.xaml;Pages\CI_PresentationForm.xaml;Pages\MD_ScopeCode_MD_Metadata.xaml;Pages\DS_AssociationTypeCode.xaml;Pages\DS_InitiativeTypeCode.xaml;Pages\EntityAttributeOverview.xaml;Pages\EX_VerticalExtent.xaml;Pages\ImageAttachement.xaml;Pages\MD_AggregateInformation.xaml;Pages\MD_ApplicationSchemaInformation.xaml;Pages\MD_FileIdentifier.xaml;Pages\PartyPickerControl.xaml;Pages\References.xaml;Pages\CI_ResponsiblePartyReadOnly.xaml;Pages\ContactManger.xaml;Pages\UCUM_Length.xaml;Pages\DQ_ConformanceResult.xaml;Pages\DQ_QuantitativeResult.xaml;Pages\EditorRichTextBox.xaml;Pages\GenericName.xaml;Pages\GeoprocessingHistory.xaml;Pages\GML_Point.xaml;Pages\Locale.xaml;Pages\Locales.xaml;Pages\MD_Dimension.xaml;Pages\CountryCode.xaml;Pages\EntityAttribute.xaml;Pages\EntityAttributeCodesetDomain.xaml;Pages\EntityAttributeDetails.xaml;Pages\EntityAttributeEnumDomValues.xaml;Pages\EntityAttributeInfo.xaml;Pages\EntityAttributeRangeDomain.xaml;Pages\GPCustomTool.xaml;Pages\MD_Georectified.xaml;Pages\MD_Georeferenceable.xaml;Pages\MD_GridSpatialRepresentationBase.xaml;Pages\CharacterString.xaml;Pages\CI_Citation.xaml;Pages\CI_Contact.xaml;Pages\CI_OnlineResource.xaml;Pages\ConstraintTypes.xaml;Pages\ContentInformation.xaml;Pages\DataQuality.xaml;Pages\DatasetCitation.xaml;Pages\DistributionInfo.xaml;Pages\DQ_DataQuality.xaml;Pages\DQ_Element.xaml;Pages\EX_Extent.xaml;Pages\EX_GeographicBoundingBox.xaml;Pages\EX_GeographicDescription.xaml;Pages\ItemInfo.xaml;Pages\Keywords.xaml;Pages\LanguageCode.xaml;Pages\LI_Lineage.xaml;Pages\LI_ProcessStep.xaml;Pages\LI_Source.xaml;Pages\MD_Band.xaml;Pages\MD_BrowseGraphic.xaml;Pages\MD_CharacterSetCode.xaml;Pages\MD_ClassificationCode.xaml;Pages\MD_Constraints.xaml;Pages\MD_ConverageDescriptionBase.xaml;Pages\MD_CoverageDescription.xaml;Pages\MD_DigitalTransferOptions.xaml;Pages\MD_Distribution.xaml;Pages\MD_Distributor.xaml;Pages\MD_FeatureCatalogueDescription.xaml;Pages\MD_Format.xaml;Pages\MD_GridSpatialRepresentation.xaml;Pages\MD_Identifier.xaml;Pages\MD_ImageDescription.xaml;Pages\MD_Keywords.xaml;Pages\MD_LegalConstraints.xaml;Pages\MD_MaintenanceInformation.xaml;Pages\CI_PresentationFormCode.xaml;Pages\MD_Medium.xaml;Pages\MD_MediumFormatCode.xaml;Pages\MD_ProgressCode.xaml;Pages\MD_RangeDimension.xaml;Pages\MD_ReferenceSystem.xaml;Pages\MD_Resolution.xaml;Pages\MD_RestrictionCode.xaml;Pages\MD_ScopeCode.xaml;Pages\MD_ScopeDescription.xaml;Pages\MD_SecurityConstraints.xaml;Pages\MD_StandardOrderProcess.xaml;Pages\MD_Usage.xaml;Pages\MD_VectorSpatialRepresentation.xaml;Pages\MetadataConstraints.xaml;Pages\MetadataContacts.xaml;Pages\MetadataDetails.xaml;Pages\MetadataMaintenance.xaml;Pages\CI_ResponsibleParty.xaml;Pages\ReferenceSystem.xaml;Pages\ResourceCitationContacts.xaml;Pages\ResourceConstraints.xaml;Pages\ResourceDetails.xaml;Pages\ResourceExtent.xaml;Pages\ResourceMaintenance.xaml;Pages\ResourcePoc.xaml;Pages\RS_Identifier.xaml;Pages\Services.xaml;Pages\SpatialRepresentation.xaml;Pages\SV_CoupledResource.xaml;Pages\UCUM.xaml;Pages\ValueUoM.xaml;Themes\Generic.xaml;Pages\TM_Period.xaml;
+
+True
+
